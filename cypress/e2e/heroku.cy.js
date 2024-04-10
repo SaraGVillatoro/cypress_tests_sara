@@ -1,4 +1,5 @@
 describe('template spec', () => {
+
   it('test de login valido', () => {
     cy.visit('https://the-internet.herokuapp.com/')
     cy.get(':nth-child(21) > a').click()
@@ -8,6 +9,7 @@ describe('template spec', () => {
     cy.contains("You logged into a secure area")
 
  })
+
  it('test de login con usuario invalido', () => {
   cy.visit('https://the-internet.herokuapp.com/')
   cy.get(':nth-child(21) > a').click()
@@ -15,8 +17,8 @@ describe('template spec', () => {
   cy.get('#password').type('SuperSecretPassword!')
   cy.get('.radius').click()
   cy.contains("Your username is invalid")
-
 })
+
 it('test de login con password invalido', () => {
   cy.visit('https://the-internet.herokuapp.com/')
   cy.get(':nth-child(21) > a').click()
@@ -24,6 +26,14 @@ it('test de login con password invalido', () => {
   cy.get('#password').type('SuperSecreTPasswor')
   cy.get('.radius').click()
   cy.contains('Your password is invalid')
-
 })
+
+it('test de login con password vacio', () => {
+  cy.visit('https://the-internet.herokuapp.com/')
+  cy.get(':nth-child(21) > a').click()
+  cy.get('#username').type("tomsmith")
+  cy.get('.radius').click()
+  cy.contains("Your password is invalid")
+})
+
 })
