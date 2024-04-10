@@ -8,4 +8,12 @@ describe('template spec', () => {
     cy.contains("You logged into a secure area")
 
  })
+ it('test de login con usuario invalido', () => {
+  cy.visit('https://the-internet.herokuapp.com/')
+  cy.get(':nth-child(21) > a').click()
+  cy.get('#username').type("pepito")
+  cy.get('#password').type('SuperSecretPassword!')
+  cy.get('.radius').click()
+  cy.contains("Your username is invalid")
+
 })
