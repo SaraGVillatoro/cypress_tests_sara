@@ -17,3 +17,4 @@ describe('template spec', () => {
   cy.contains("Your username is invalid")
 
 })
+})
