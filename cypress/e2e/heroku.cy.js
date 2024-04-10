@@ -17,4 +17,13 @@ describe('template spec', () => {
   cy.contains("Your username is invalid")
 
 })
+it('test de login con password invalido', () => {
+  cy.visit('https://the-internet.herokuapp.com/')
+  cy.get(':nth-child(21) > a').click()
+  cy.get('#username').type('tomsmith')
+  cy.get('#password').type('SuperSecreTPasswor')
+  cy.get('.radius').click()
+  cy.contains('Your password is invalid')
+
+})
 })
